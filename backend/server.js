@@ -30,8 +30,8 @@ const sequelize = new Sequelize(
 // Test DB connection
 sequelize
   .authenticate()
-  .then(() => console.log("✅ Database connected successfully"))
-  .catch((err) => console.error("❌ DB connection failed:", err));
+  .then(() => console.log("Database connected successfully"))
+  .catch((err) => console.error("DB connection failed:", err));
 
 // Import Routes
 const categoryRoutes = require("./routes/category");
@@ -47,7 +47,7 @@ app.use("/api/attributes", attributeRoutes);
 
 // Test root
 app.get("/", (req, res) => {
-  res.send("Internal Product Management Tool Backend is running 🚀");
+  res.send("Internal Product Management Tool Backend is running");
 });
 
 // Start server
@@ -55,4 +55,4 @@ app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
 
-module.exports = app; // export if you want for testing
+module.exports = app; 

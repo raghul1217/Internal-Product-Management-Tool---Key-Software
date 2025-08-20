@@ -52,7 +52,7 @@ The database is normalized to reduce redundancy.
 
 **Attributes**
 - `GET /api/attributes?categoryId=` – Fetch attributes for a category  
-- `POST /api/attributes` – Add a new attribute (if implemented)
+- `POST /api/attributes` – Add a new attribute 
 
 ---
 
