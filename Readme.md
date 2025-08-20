@@ -14,11 +14,27 @@
 ![Class Diagram](./docs/Class_diagram.png)  
 
 **Explanation:**  
-- **Product**: Holds product information and belongs to a **Category**.  
-- **Category**: Groups products logically.  
-- **Attribute**: Defines dynamic fields for products.  
-- **ProductAttributeValue**: Links products and attributes, storing specific attribute values per product.  
-- This design ensures clean relationships, easy CRUD operations, and flexibility to add new attributes.
+### Category
+- Stores product categories.
+- Methods represent API endpoints for CRUD operations.
+
+### Product
+- Stores product info linked to category.
+- Methods represent API endpoints for CRUD operations.
+
+### Attribute
+- Stores category-specific attributes like Color, Size, Brand.
+- Can fetch attributes by category.
+
+### ProductAttributeValue
+- Stores the actual attribute values for products.
+- Acts as a join table between Product and Attribute.
+
+### Relationships
+- 1 Category → N Products
+- 1 Category → N Attributes
+- 1 Product → N ProductAttributeValues
+- 1 Attribute → N ProductAttributeValues
 
 ---
 
