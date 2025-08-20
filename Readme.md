@@ -73,3 +73,19 @@ PORT=5000
 
 # Run server
 npm run dev
+
+```
+### Frontend
+```bash
+# Install dependencies
+cd frontend
+npm install
+
+# Run dev server
+npm run dev
+```
+
+- Backend runs on http://localhost:5000
+- Frontend runs on http://localhost:5173 (default Vite port)
+
+
