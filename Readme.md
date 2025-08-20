@@ -104,3 +104,11 @@ npm run dev
 - Frontend runs on http://localhost:5173 (default Vite port)
 
 
+## 6. Future Implementation
+
+-	Adding inventory management and supplier linking.
+-	Product variant support (size, color combinations).
+-	Role-based access control for admin and staff users.
+-	Enhanced UI with responsive design and better UX.
+
+
