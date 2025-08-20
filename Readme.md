@@ -4,10 +4,9 @@
 ![ERD Diagram](./docs/ERD.png)  
 
 **Justification:**  
-The database is normalized to reduce redundancy.  
-- **Products**, **Categories**, **Attributes**, and **ProductAttributeValues** are separated for flexibility.  
-- One-to-many between **Categories** and **Products**; many-to-many between **Products** and **Attributes** via **ProductAttributeValues**.  
-- Supports dynamic addition of products, categories, and attributes, making the system future-proof.
+- **Normalization & structure**: Products, Attributes, and Categories are separated to avoid redundancy.
+- **Flexibility**: Attributes are linked to categories, allowing different categories to have different sets of attributes.
+- **Future-proofing**: ProductAttributeValues allows storing values for any attribute dynamically without changing table structure.
 
 ---
 
