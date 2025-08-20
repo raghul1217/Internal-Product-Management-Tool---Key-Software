@@ -58,7 +58,7 @@ export default function ProductList() {
             <tr key={p.id}>
               <td>{p.name}</td>
               <td>{p.category?.name}</td>
-              <td>{p.price}</td>
+              <td>${p.price}</td>
               <td>{p.description}</td>
               <td>
                 {p.attributeValues.map((av) => (

@@ -67,25 +67,38 @@ exports.getProductById = async (req, res) => {
 };
 
 // Create a new product with attribute values
+
 exports.createProduct = async (req, res) => {
   try {
     const { name, description, price, categoryId, attributeValues } = req.body;
 
-    // Create the product
+    // Create product
     const product = await Product.create({ name, description, price, categoryId });
 
-    // Create attribute values if any
-    if (attributeValues && attributeValues.length > 0) {
-      const pavs = attributeValues.map((attr) => ({
+    // Loop through attributes
+    for (const attr of attributeValues) {
+      let attributeId = attr.attributeId;
+
+      // If new attribute (no attributeId), create it first
+      if (!attributeId && attr.name) {
+        const newAttr = await Attribute.create({
+          name: attr.name,
+          dataType: "string", // or send from frontend
+          categoryId: categoryId,
+        });
+        attributeId = newAttr.id;
+      }
+
+      // Create ProductAttributeValue
+      await ProductAttributeValue.create({
         productId: product.id,
-        attributeId: attr.attributeId,
+        attributeId,
         value: attr.value,
-      }));
-      await ProductAttributeValue.bulkCreate(pavs);
+      });
     }
 
-    // Fetch product again including attributes
-    const fullProduct = await Product.findByPk(product.id, {
+    // Fetch product with all attributeValues for response
+    const savedProduct = await Product.findByPk(product.id, {
       include: [
         { model: Category, as: "category", attributes: ["id", "name"] },
         {
@@ -96,12 +109,13 @@ exports.createProduct = async (req, res) => {
       ],
     });
 
-    res.status(201).json(fullProduct);
+    res.status(201).json(savedProduct);
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });
   }
 };
+
 
 // Update a product and its attribute values
 exports.updateProduct = async (req, res) => {
