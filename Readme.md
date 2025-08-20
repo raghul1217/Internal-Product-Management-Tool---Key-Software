@@ -1,7 +1,7 @@
 # Internal Product Management Tool
 
 ## 1. ERD Diagram
-<!-- ![ERD Diagram](./docs/ERD.png)   -->
+![ERD Diagram](./docs/ERD.png)  
 
 **Justification:**  
 - **Normalization & structure**: Products, Attributes, and Categories are separated to avoid redundancy.
@@ -11,7 +11,7 @@
 ---
 
 ## 2. Class Diagram
-<!-- ![Class Diagram](./docs/Class_diagram.png)   -->
+![Class Diagram](./docs/Class_diagram.png)  
 
 **Explanation:**  
 ### Category
